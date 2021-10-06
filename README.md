@@ -54,7 +54,7 @@ H
 0 0 -1 0
 ```
 The data can be interpreted as a system of inequalities:  
-![System of inequalities](../assets/assets/inadequity1.png?raw=true)  
+![System of inequalities](../assets/assets/inequality1.png?raw=true)  
 
 ## Application Results
 The program will display the following data:  
