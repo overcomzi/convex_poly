@@ -1,30 +1,30 @@
-# Приложение по вычислению выпуклой оболочки
-## Краткая информация
+# Convex Hull calculation application
+## Brief information
 
-Приложение на вход принимает кординаты точек или плоскости (задаются неравенствами) и вычисляет с помощью каких вершин (плоскостей) можно создать выпуклый многранник максимального объёма.  
-На выходе: графическое представление многогранника и текстовое представление вершин (координаты)  
+The application takes the coordinates of points or planes as input (given by inequalities) and calculates with which vertices (planes) it is possible to create a convex polyhedron of maximum volume.  
+Output: a graphical representation of the polyhedron and a textual representation of the vertices (coordinates)  
 
-Пример работы:  
-![Скриншот работы приложения](../assets/assets/demo-work.gif?raw=true)  
+Example of work:  
+![Screenshot of the application](../assets/assets/demo-work.gif?raw=true)
 
-## Запуск приложения
-#### Установка
-Используется OpenGL, freeglut.  
-Желательно работать в Visual Studio c установленным vcpkg.  
-Инструкцию по установке можно найти здесь: https://vcpkg.io/en/getting-started.html  
-Далее устанавливаем OpenGL, freeglut  
+## Launching the app
+#### Installation
+OpenGL and freeglut are used.  
+It is advisable to work in Visual Studio with vcpkg installed.  
+Installation instructions can be found here: https://vcpkg.io/en/getting-started.html  
+Next, install OpenGL, freeglut  
 `vcpkg install freeglut:x64-windows`  
 `vcpkg install integrate`  
 
-В visual studio автоматически всё внедрится и дополнительных настроек не нужно производить.  
+Everything will be implemented automatically in visual studio and no additional settings need to be made.  
 
-#### Запуск
-В коммандой строке выполните команду:  
+#### Launch
+In the command line, run the command:  
 `Convex_poly.exe input.txt`  
-Либо без аргумента input.txt, тогда точки необходимо будет вводить вручную.
+Or without an argument input.txt, then the points will need to be entered manually.  
 
-где *input* - название файла с данными  
-input.txt:
+where *input* is the name of the data file
+input.txt:  
 ```
 V
 9
@@ -36,36 +36,36 @@ V
 0 1 0
 0 2 0
 2 2 0
-```  
-1-ая строка - тип данных, V - вершины, H - Неравенства (плоскости)  
-2-ая строка - кол-во точек  
-Остальные  строчки представляют собой строки координаты вершин (x, y, z) - целочисленные, если тип данных V.  
-Если же тип данных H, то вводятся неравенства, подобным образом:
-input.txt:  
+```
+1st row - data type, V - vertices, H - Inequalities (planes)  
+2nd line - number of points  
+The remaining rows are the rows of vertex coordinates (x, y, z) - integer if the data type is V.  
+If the data type is H, then inequalities are introduced, similarly:  
+input.txt:
 ```
 H
 7
-0 0 1 2 
-0 -1 0 0 
--1 0 0 0 
--2 -2 -1 -2 
-1 0 0 2 
-0 1 0 2 
-0 0 -1 0 
+0 0 1 2
+0 -1 0 0
+-1 0 0 0
+-2 -2 -1 -2
+1 0 0 2
+0 1 0 2
+0 0 -1 0
 ```
-Данные можно интерпретировать как систему неравенств:  
-![Система неравенств](../assets/assets/inequality1.png?raw=true)    
+The data can be interpreted as a system of inequalities:  
+![System of inequalities](../assets/assets/inadequity1.png?raw=true)  
 
-## Результаты приложения  
-Программа вывыдить следующие данные:
-* Все вершины искомого выпуклого многогранника (координаты и их именование)
-* Матрицу смежности, которая сообщает, как связаны между собой вершины  
-1 - Вершины соединены прямой, 0 - нет
-* Граничную плоскость или грань, задающаяся неравенством
-* И прямые, принадлежащие этой грани
-* Графическое представление выпуклой оболочки в виде 3D графика по осям XYZ
+## Application Results
+The program will display the following data:  
+* All vertices of the desired convex polyhedron (coordinates and their naming)
+* Adjacency matrix, which tells how the vertices are connected  
+1 - Vertices are connected by a straight line, 0 - not  
+* The face defined by the inequality
+* And straight lines belonging to this face
+* Graphical representation of the convex hull in the form of a 3D graph along the XYZ axes
 
-### Примечание:
-1) Чтобы отобразилась графика, необходимо открыть на полный экран окно с многогранником.
-2) Можно приблежать график или отдалять, ЛКМ - приближать, ПКМ - отдалять
-3) Вращение графика задаётся в самом начале приложения
+### Note:
+1) To display the graphics, you need to open a full-screen window with a polyhedron.
+2) You can run a graph or move away, LCM - zoom in, PCM - move away
+3) The rotation of the graph is set at the very beginning of the application
